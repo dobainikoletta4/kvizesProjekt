@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvíz oldal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="#table" class="active">Főoldal</a>
+        <a href="#form" class="">Filmek</a>
+        <a href="#card" class="">Nevezetességek</a>
+        <a href="#modal" class="">Autók</a>
+    </div>
+
+
+
+    <div class="modal fade" id="newsletter" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iratkozz fel a hírlevélre!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Név</label>
+                            <input type="text" id="nameInput" class="form-control" placeholder="Add meg a neved!">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email cím</label>
+                            <input type="email" id="emailInput" class="form-control"
+                                placeholder="Add meg az email címed!">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="termsCheckbox" checked>
+                            <label for="termsCheckbox" class="form-check-label">
+                                Elfogadom a felhasználási feltételeket
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Feliratkozás</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <p>Elérhtőségek</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <button type="button" class="btn1" id="newsletterButton">
+                        Feliratkozás a hírlevélre!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('newsletterButton').addEventListener('click', function () {
+            const button = this;
+            button.disabled = true;
+            const originalText = button.textContent;
+            button.textContent = 'Töltés...';
+
+            setTimeout(function () {
+                const newsletterModal = new bootstrap.Modal(document.getElementById('newsletter'));
+                newsletterModal.show();
+
+                button.disabled = false;
+                button.textContent = originalText;
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
