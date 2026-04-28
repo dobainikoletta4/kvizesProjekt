@@ -102,3 +102,13 @@ body {
 .container.py-2 {
     flex: 1;
 }
+
+.email{
+    color: white;
+}
+.email:hover{
+    color: azure;
+}
+.kulso{
+    background-color: #212529;
+}
