@@ -27,16 +27,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-4">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#index.html">Főoldal</a>
+                        <a class="nav-link text-white" href="index.html">Főoldal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Filmek</a>
+                        <a class="nav-link text-white" href="">Filmek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Nevezetességek</a>
+                        <a class="nav-link text-white" href="">Nevezetességek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Autók</a>
+                        <a class="nav-link text-white" href="">Autók</a>
                     </li>
                 </ul>
 
@@ -51,30 +51,35 @@
         </div>
     </nav>
 
-    <div class="container py-2">
-        <div class="row row-cols-1 row-cols-md-3 g-4 felso">
-            <div class="col szoveg1">
-                <p>KVÍZ OLDAL</p>
-            </div>
-            <div class="col szoveg2">
-                <p>
-                    Ez az oldal izgalmas kvízeket kínál a filmek,<br>
-                    világhírű nevezetességek és autók világából, így
-                    mindenki megtalálhatja a hozzá legközelebb álló témát.
-                </p>
-            </div>
-            <div class="col kep">
-                <img src="kek kocka.png" alt="kocka">
-            </div>
-        </div>
+    <div class="container-fluid felso">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center text-center">
 
-        <div class="row also">
-            <p></p>
+                <div class="col szoveg1">
+                    <p>KVÍZ OLDAL</p>
+                </div>
+
+                <div class="col szoveg2">
+                    <p>
+                        Ez az oldal izgalmas kvízeket kínál a filmek,<br>
+                        világhírű nevezetességek és autók világából, így
+                        mindenki megtalálhatja a hozzá legközelebb álló témát.
+                    </p>
+                </div>
+
+                <div class="col kep">
+                    <img src="kek kocka.png" alt="kocka">
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <div class="container py-2">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="container-fluid also"></div>
+    
+
+    <div class="container py-5">
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-1 row-cols-xs-1 g-5">
             <div class="col">
                 <div class="card h-100">
                     <img src="film.png" class="card-img-top" alt="Filmekkel kapcsolatos kvíz" title="Filmes kvíz">
@@ -82,7 +87,7 @@
                         <h4 class="card-text"><strong>Filmek</strong></h4>
                         <h6 class="card-text">Ebben a kvízben egy megadott kép alapján kell<br>kitalálnod a
                             helyes karakter nevét és hogy<br>melyik filmből ismerősek.</h6>
-                        <a href="#" class="btn text-bg-dark btn2">Kezdés</a>
+                        <a href="" target="_blank" class="btn text-bg-dark btn2">Kezdés</a>
                     </div>
 
                 </div>
@@ -96,7 +101,7 @@
                         <h4 class="card-text"><strong>Nevezetességek</strong></h4>
                         <h6 class="card-text">Ebben a kvízben egyetlen képek alapján kell<br>felismerned és
                             kitalálnod, melyik híres<br>nevezetességet ábrázolja a fotó.</h6>
-                        <a href="#" class="btn text-bg-dark btn2">Kezdés</a>
+                        <a href="" target="_blank" class="btn text-bg-dark btn2">Kezdés</a>
                     </div>
                 </div>
             </div>
@@ -107,16 +112,14 @@
                         title="Autókkal kapcsolatos kvíz">
                     <div class="card-body">
                         <h4 class="card-text"><strong>Autók</strong></h4>
-                        <h6 class="card-text">Ebben a kvízben különböző autóképek alapján kell<br>felismerned és
+                        <h6 class="card-text">Ebben a kvízben különböző autóképek alapján kell felismerned és
                             kitalálnod, melyik márkához<br>tartozik az adott jármű és beírnod a választ.</h6>
-                        <a href="#" class="btn text-bg-dark btn2">Kezdés</a>
+                        <a href="" target="_blank" class="btn text-bg-dark btn2">Kezdés</a>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
-    </div>
     </div>
 
     <div class="modal fade" id="newsletter" tabindex="-1" aria-hidden="true">
@@ -157,7 +160,7 @@
         <div class="container">
             <div class="row text-center align-items-start">
 
-                <div class="col-lg-4 col-md-4 col-12 footer-left">
+                <div class="col-lg-4 col-md-4 col-12 py-2">
                     <h4 class="cim">Elérhetőségek</h4>
 
                     <p>
@@ -176,7 +179,7 @@
                 </div>
 
 
-                <div class="col-lg-4 col-md-4 col-12 footer-center">
+                <div class="col-lg-4 col-md-4 col-12 py-2">
                     <h4 class="cim">Támogatók</h4>
 
                     <p>TechNova Kft.</p>
@@ -186,12 +189,16 @@
                 </div>
 
                 <div
-                    class="col-lg-4 col-md-4 col-12 footer-right d-flex flex-column align-items-center justify-content-center">
-                    <h4  class="cim">Hírlevél</h4>
+                    class="col-lg-4 col-md-4 col-12 d-flex flex-column justify-content-center align-items-center text-center h-100 py-2">
+                    <h4 class="cim">Hírlevél</h4>
 
                     <button type="button" class="btn1 mt-2" id="newsletterButton">
                         Feliratkozás
                     </button>
+
+                    <p class="mondat mt-3">
+                        Értesülj új kvízekről és friss tartalmakról
+                    </p>
                 </div>
 
             </div>
@@ -211,7 +218,7 @@
 
                 button.disabled = false;
                 button.textContent = originalText;
-            }, 5000);
+            }, 1000);
         });
 
         document.querySelectorAll('.navbar .nav-link').forEach(link => {
@@ -233,27 +240,39 @@
 
             removeHighlights(document.body);
             highlight(document.body, query);
+
+            const first = document.querySelector("mark");
+            if (first) {
+                first.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+
+            const count = document.querySelectorAll("mark").length;
+            console.log("Találatok száma:", count);
         });
 
+
         function highlight(element, query) {
+
+            if (element.closest && element.closest(".navbar, footer")) return;
+
             if (element.nodeType === 3) {
                 const text = element.nodeValue;
+                const regex = new RegExp(`(${query})`, "gi");
 
-                if (text.toLowerCase().includes(query)) {
+                if (regex.test(text)) {
                     const span = document.createElement("span");
-                    span.innerHTML = text.replace(new RegExp(query, "gi"), match => `<mark>${match}</mark>`);
-
-                    const wrapper = document.createElement("span");
-                    wrapper.innerHTML = span.innerHTML;
-
-                    element.replaceWith(wrapper);
+                    span.innerHTML = text.replace(regex, "<mark>$1</mark>");
+                    element.replaceWith(...span.childNodes);
                 }
-            } else {
-                element.childNodes.forEach(child => {
-                    highlight(child, query);
-                });
+            }
+            else if (element.nodeType === 1) {
+
+                if (["SCRIPT", "STYLE", "MARK"].includes(element.tagName)) return;
+
+                element.childNodes.forEach(child => highlight(child, query));
             }
         }
+
 
         function removeHighlights(element) {
             const marks = element.querySelectorAll("mark");

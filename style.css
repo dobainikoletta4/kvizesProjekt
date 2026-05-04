@@ -51,9 +51,9 @@ footer {
 }
 
 mark {
-    background-color: rgb(255, 217, 0);
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
     color: black;
-    padding: 0;
+    border-radius: 4px;
 }
 
 .site-footer {
@@ -71,6 +71,11 @@ mark {
 .site-footer p {
     font-size: 16px;
     margin: 6px 0;
+}
+
+.mondat{
+    margin-top: 10px;
+    font-size: 13px;
 }
 
 .btn1 {
@@ -121,15 +126,10 @@ body {
 }
 
 .felso {
-    text-align: center;
-    margin-top: 20px;
     background-color: #6B9CDD;
     color: white;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
+    padding: 40px 0;
+    margin-bottom: 0;
 
 }
 
@@ -151,11 +151,24 @@ body {
 }
 
 .also{
-    background-color: #212529;
+    background-color: #212529 !important;
     width: 100%;
     height: 50px;
-}   
+    flex-shrink: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
 
 .cim{
     font-weight: bold;
+}
+
+.card {
+    height: 100%;
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
