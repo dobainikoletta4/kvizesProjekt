@@ -1,173 +1,13 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindenami Kvíz - Százalékos Haladás</title>
-    <style>
-         .search-form .form-control {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: none !important;
-    transition: 0.2s; }
-
- .search-form .form-control:focus {
-    background-color: #f1f1f1 !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    outline: none; }
-
- .search-form .btn {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: none !important;
-    transition: 0.2s; }
-
- .search-form .btn:hover {
-    background-color: #e6e6e6 !important; }
-
- .search-form .btn:active {
-    background-color: #cccccc !important;
-    transform: scale(0.97); }
-        .btn1 {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    transition: 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-
- .btn1:hover {
-    background-color: #e6e6e6;
-    transform: scale(1.05); }
-
- .btn2:hover{
-    transform: scale(1.05);
-    transition: 0.2s; }
-
-         .footer {
-  background-color: #1a1d21; /* Sötét szürke háttér */
-  color: #ffffff;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
-  text-align: center; }
-
- .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px; }
-
- .footer-section {
-  flex: 1;
-  min-width: 250px; }
-
- .footer-section h3 {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  font-weight: bold; }
-
- .footer-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-
- .footer-section li {
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-  color: #ccc; }
-
- .footer-section a {
-  color: #ccc;
-  text-decoration: underline; }
-
- /* Feliratkozás gomb stílusa */
-.subscribe-btn {
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 15px;
-  transition: background-color 0.3s; }
-
- .subscribe-btn:hover {
-  background-color: #e0e0e0; }
-
- .newsletter-text {
-  font-size: 0.85rem;
-  color: #aaa; }
-         :root {
-            --bg-color: #f4f4f4;
-            --header-footer-bg: #222;
-            --accent-blue: #2b7fff;
-            --correct-green: #4caf50;
-            --wrong-red: #f44336;
-        }
-
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--bg-color); display: flex; flex-direction: column; min-height: 100vh; }
-
-        /* Header */
-        header { background-color: var(--header-footer-bg); color: white; padding: 15px 50px; display: flex; justify-content: flex-start; align-items: center; }
-        nav { display: flex; align-items: center; gap: 20px; width: 100%; }
-        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; opacity: 0.8; }
-        nav a.active { background: white; color: black; font-weight: bold; opacity: 1; }
-
-        .page-section { display: none; flex-grow: 1; flex-direction: column; align-items: center; padding: 40px 20px; }
-        .page-section.active { display: flex; }
-
-        /* FOLYAMATJELZŐ SZÁMOKKAL */
-        .progress-container { 
-             width: 80%; 
-             max-width: 800px; 
-             background-color: #ddd; 
-             height: 25px; 
-             border-radius: 15px; 
-             margin-bottom: 40px; 
-             overflow: hidden;
-             position: relative;
-        }
-
-        #progress-bar { 
-             height: 100%; 
-             width: 10%; 
-             background-color: var(--accent-blue); 
-             transition: width 0.5s ease; 
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             color: white;
-             font-weight: bold;
-             font-size: 14px;
-        }
-
-        /* Kvíz kártya */
-        .quiz-card { background: white; border: 8px solid #999; border-radius: 30px; padding: 40px; width: 90%; max-width: 600px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
-        
-        .option { position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; border: 4px solid transparent; transition: 0.2s; background: #eee; }
-        .option img { width: 100%; height: 150px; object-fit: cover; display: block; }
-
-        .feedback-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; display: none; z-index: 5; text-shadow: 0 0 10px rgba(0,0,0,0.5); pointer-events: none; }
-
-        /* Gombok */
-        .buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        button { padding: 12px 30px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; }
-        .back-btn { background: var(--accent-blue); }
-        .next-btn { background: #444; opacity: 0.4; cursor: not-allowed; }
-        .next-btn.enabled { opacity: 1; cursor: pointer; background: #333; }
-
-        footer { background-color: var(--header-footer-bg); color: white; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-
-    </style>
+    <title>Kvíz oldal</title>
+    <link rel="stylesheet" href="autok.css">
 </head>
+
 <body>
 
     <header>
@@ -177,10 +17,10 @@
             <a href="nevezetessegek.html">Nevezetességek</a>
             <a href="autok.html" class="active">Autók</a>
             <form class="d-flex ms-auto search-form" role="search">
-                    <input class="form-control me-2 bg-white text-dark border-0" type="search" placeholder="Szöveg"> 
-                    <button class="btn bg-white text-dark border-0" type="submit">
-                        Keresés
-                    </button>
+                <input class="form-control me-2 bg-white text-dark border-0" type="search" placeholder="Szöveg">
+                <button class="btn bg-white text-dark border-0" type="submit">
+                    Keresés
+                </button>
             </form>
         </nav>
     </header>
@@ -201,123 +41,123 @@
     </main>
 
     <footer class="footer">
-      <div class="footer-container">
-         <div class="footer-section">
-          <h3>Elérhetőségek</h3>
-          <ul class="contact-info">
-            <li><i class="icon-email"></i> <a href="mailto:mindenamikviz@gmail.com">mindenamikviz@gmail.com</a></li>
-            <li><i class="icon-phone"></i> +36 409 855</li>
-            <li><i class="icon-location"></i> Magyarország</li>
-          </ul>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Elérhetőségek</h3>
+                <ul class="contact-info">
+                    <li><i class="icon-email"></i> <a href="mailto:mindenamikviz@gmail.com">mindenamikviz@gmail.com</a>
+                    </li>
+                    <li><i class="icon-phone"></i> +36 409 855</li>
+                    <li><i class="icon-location"></i> Magyarország</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Támogatók</h3>
+                <ul class="partners">
+                    <li>TechNova Kft</li>
+                    <li>DigitalWave Studio</li>
+                    <li>CodeFactory Solutions</li>
+                    <li>BlueFilm Media</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hírlevél</h3>
+                <button class="subscribe-btn">Feliratkozás</button>
+                <p class="newsletter-text">Értesülj új kvízekről és friss tartalmakról</p>
+            </div>
         </div>
-         <div class="footer-section">
-          <h3>Támogatók</h3>
-          <ul class="partners">
-            <li>TechNova Kft</li>
-            <li>DigitalWave Studio</li>
-            <li>CodeFactory Solutions</li>
-            <li>BlueFilm Media</li>
-          </ul>
-        </div>
-          <div class="footer-section">
-          <h3>Hírlevél</h3>
-          <button class="subscribe-btn">Feliratkozás</button>
-          <p class="newsletter-text">Értesülj új kvízekről és friss tartalmakról</p>
-        </div>
-       </div>
     </footer>
 
     <script>
-        // 10 EGYEDI KÉRDÉS ÉS KÉPHELYEK
         const questions = [
             {
                 q: "1. Melyik képen látható egy Lada?",
                 options: [
-                    { img: "kep1_1.jpg", correct: true },
-                    { img: "kep1_2.jpg", correct: false },
-                    { img: "kep1_3.jpg", correct: false },
-                    { img: "kep1_4.jpg", correct: false }
+                    { img: "kepek//porche1.jpg", correct: false },
+                    { img: "kepek//polski1.jpg", correct: false },
+                    { img: "kepek//trabant1.jpg", correct: false },
+                    { img: "kepek//lada1.jpg", correct: true }
                 ]
             },
             {
                 q: "2. Melyik egy Tesla?",
                 options: [
-                    { img: "kep2_1.jpg", correct: false },
-                    { img: "kep2_2.jpg", correct: true },
-                    { img: "kep2_3.jpg", correct: false },
-                    { img: "kep2_4.jpg", correct: false }
+                    { img: "kepek//tesla2.avif", correct: true },
+                    { img: "kepek//ferrari2.jpg", correct: false },
+                    { img: "kepek//byd2.png", correct: false },
+                    { img: "kepek//kei2.jpg", correct: false }
                 ]
             },
             {
-                q: "3. Melyik autó német gyártmány?",
+                q: "3. Melyik autó egy Porche?",
                 options: [
-                    { img: "kep3_1.jpg", correct: false },
-                    { img: "kep3_2.jpg", correct: false },
-                    { img: "kep3_3.jpg", correct: true },
-                    { img: "kep3_4.jpg", correct: false }
+                    { img: "kepek//kei2.jpg", correct: false },
+                    { img: "kepek//byd3.jpg", correct: false },
+                    { img: "kepek//porchetaycan.webp", correct: true },
+                    { img: "kepek//lambo.jpg", correct: false }
                 ]
             },
             {
-                q: "4. Melyik egy terepjáró?",
+                q: "4. Melyik gépjármű van 500 lóerő felett?",
                 options: [
-                    { img: "kep4_1.jpg", correct: true },
-                    { img: "kep4_2.jpg", correct: false },
-                    { img: "kep4_3.jpg", correct: false },
-                    { img: "kep4_4.jpg", correct: false }
+                    { img: "kepek//polo.webp", correct: false },
+                    { img: "kepek//koenigsegg.jpg", correct: true },
+                    { img: "kepek//toyota3.png", correct: false },
+                    { img: "kepek//fiat.avif", correct: false }
                 ]
             },
             {
-                q: "5. Melyik logó Ferrari?",
+                q: "5. Melyik kocsi egy Ferrari?",
                 options: [
-                    { img: "kep5_1.jpg", correct: false },
-                    { img: "kep5_2.jpg", correct: true },
-                    { img: "kep5_3.jpg", correct: false },
-                    { img: "kep5_4.jpg", correct: false }
+                    { img: "kepek//fiat.avif", correct: false },
+                    { img: "kepek//corvette.jpg", correct: false },
+                    { img: "kepek//repcsi.jpg", correct: false },
+                    { img: "kepek//feri3.jpg", correct: true }
                 ]
             },
             {
-                q: "6. Melyik egy japán autó?",
+                q: "6. Melyik jármű egy Toyota?",
                 options: [
-                    { img: "kep6_1.jpg", correct: false },
-                    { img: "kep6_2.jpg", correct: false },
-                    { img: "kep6_3.jpg", correct: true },
-                    { img: "kep6_4.jpg", correct: false }
+                    { img: "kepek//toyota3.png", correct: true },
+                    { img: "kepek//feri3.jpg", correct: false },
+                    { img: "kepek//supra.avif", correct: true },
+                    { img: "kepek//tesla2.avif", correct: false }
                 ]
             },
             {
-                q: "7. Melyik látható filmekben?",
+                q: "7. Melyik képen látható az Forma-1 jele?",
                 options: [
-                    { img: "kep7_1.jpg", correct: true },
-                    { img: "kep7_2.jpg", correct: false },
-                    { img: "kep7_3.jpg", correct: false },
-                    { img: "kep7_4.jpg", correct: false }
+                    { img: "kepek//f1.jpg", correct: true },
+                    { img: "kepek//coca.png", correct: false },
+                    { img: "kepek//red.jpg", correct: false },
+                    { img: "kepek//nascar.avif", correct: false }
                 ]
             },
             {
                 q: "8. Melyik egy luxusautó?",
                 options: [
-                    { img: "kep8_1.jpg", correct: false },
-                    { img: "kep8_2.jpg", correct: true },
-                    { img: "kep8_3.jpg", correct: false },
-                    { img: "kep8_4.jpg", correct: false }
+                    { img: "kepek//lambo.jpg", correct: true },
+                    { img: "kepek//bugi.jpg", correct: true },
+                    { img: "kepek//polski1.jpg", correct: false },
+                    { img: "kepek//rol.jpg", correct: true }
                 ]
             },
             {
                 q: "9. Melyik sportautó?",
                 options: [
-                    { img: "kep9_1.jpg", correct: true },
-                    { img: "kep9_2.jpg", correct: false },
-                    { img: "kep9_3.jpg", correct: false },
-                    { img: "kep9_4.jpg", correct: false }
+                    { img: "kepek//lambo.jpg", correct: true },
+                    { img: "kepek//honda.jpg", correct: false },
+                    { img: "kepek//pori.webp", correct: true },
+                    { img: "kepek//fiat.avif", correct: false }
                 ]
             },
             {
                 q: "10. Melyik a Bogár?",
                 options: [
-                    { img: "kep10_1.jpg", correct: false },
-                    { img: "kep10_2.jpg", correct: false },
-                    { img: "kep10_3.jpg", correct: false },
-                    { img: "kep10_4.jpg", correct: true }
+                    { img: "kepek//bogar3.jpg", correct: true },
+                    { img: "kepek//rally.jpg", correct: false },
+                    { img: "kepek//bogar2.jpg", correct: true },
+                    { img: "kepek//bogar.jpg", correct: true }
                 ]
             }
         ];
@@ -333,7 +173,7 @@
 
             const qData = questions[currentStep];
             document.getElementById('question-text').innerText = qData.q;
-            
+
             const percentage = (currentStep + 1) * 10;
             const progressBar = document.getElementById('progress-bar');
             progressBar.style.width = percentage + "%";
@@ -355,7 +195,7 @@
         }
 
         function selectOption(element, isCorrect) {
-            if(answered) return;
+            if (answered) return;
             answered = true;
 
             const nextBtn = document.getElementById('next-button');
@@ -365,10 +205,10 @@
             element.style.borderColor = isCorrect ? 'var(--correct-green)' : 'var(--wrong-red)';
             element.querySelector('.feedback-icon').style.display = 'block';
 
-            if(!isCorrect) {
+            if (!isCorrect) {
                 const allOpts = document.querySelectorAll('.option');
                 questions[currentStep].options.forEach((o, i) => {
-                    if(o.correct) {
+                    if (o.correct) {
                         allOpts[i].style.borderColor = 'var(--correct-green)';
                         allOpts[i].querySelector('.feedback-icon').style.display = 'block';
                     }
@@ -377,7 +217,7 @@
         }
 
         function nextQuestion() {
-            if(currentStep < questions.length - 1) {
+            if (currentStep < questions.length - 1) {
                 currentStep++;
                 loadQuestion();
             } else {
@@ -386,7 +226,7 @@
         }
 
         function prevQuestion() {
-            if(currentStep > 0) {
+            if (currentStep > 0) {
                 currentStep--;
                 loadQuestion();
             }
@@ -395,4 +235,5 @@
         loadQuestion();
     </script>
 </body>
+
 </html>
