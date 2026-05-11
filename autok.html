@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvíz oldal</title>
+    <link rel="stylesheet" href="autok.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+                <img src="villanykorte.jpg" alt="logo" title="logo" width="50" height="42"
+                    class="d-inline-block align-text-top me-2" style="border-radius: 10px;">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav fs-4">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.html">Főoldal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="">Filmek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="">Nevezetességek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="">Autók</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex ms-auto search-form" role="search">
+                        <input class="form-control me-2 bg-white text-dark border-0" type="search" placeholder="Szöveg">
+
+                        <button class="btn bg-white text-dark border-0" type="submit">
+                            Keresés
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="cars" class="page-section active">
+        <div class="progress-container">
+            <div id="progress-bar">10 %</div>
+        </div>
+
+        <div class="quiz-card">
+            <h2 id="question-text">Betöltés...</h2>
+            <div class="image-grid" id="options-container"></div>
+            <div class="buttons">
+                <button class="back-btn" onclick="prevQuestion()">Vissza</button>
+                <button id="next-button" class="next-btn" onclick="nextQuestion()" disabled>Tovább</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="newsletter" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iratkozz fel a hírlevélre!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Név</label>
+                            <input type="text" id="nameInput" class="form-control" placeholder="Add meg a neved!">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email cím</label>
+                            <input type="email" id="emailInput" class="form-control"
+                                placeholder="Add meg az email címed!">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="termsCheckbox" checked>
+                            <label for="termsCheckbox" class="form-check-label">
+                                Elfogadom a felhasználási feltételeket
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn text-bg-dark">Feliratkozás</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center align-items-start">
+
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Elérhetőségek</h4>
+
+                    <p>
+                        <i class="fa-regular fa-envelope"></i>
+                        <a href="mailto:mindenamikviz@gmail.com" class="email">mindenamikviz@gmail.com</a>
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone"></i>
+                        +36 409 855
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        Magyarország
+                    </p>
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Támogatók</h4>
+
+                    <p>TechNova Kft.</p>
+                    <p>DigitalWave Studio</p>
+                    <p>CodeFactory Solutions</p>
+                    <p>BlueFilm Media</p>
+                </div>
+
+                <div
+                    class="col-lg-4 col-md-4 col-12 d-flex flex-column justify-content-center align-items-center text-center h-100 py-2">
+                    <h4 class="cim">Hírlevél</h4>
+
+                    <button type="button" class="btn1 mt-2" id="newsletterButton">
+                        Feliratkozás
+                    </button>
+
+                    <p class="mondat mt-3">
+                        Értesülj új kvízekről és friss tartalmakról
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                q: "1. Melyik képen látható egy Lada?",
+                options: [
+                    { img: "kepek//porche1.jpg", correct: false },
+                    { img: "kepek//polski1.jpg", correct: false },
+                    { img: "kepek//trabant1.jpg", correct: false },
+                    { img: "kepek//lada1.jpg", correct: true }
+                ]
+            },
+            {
+                q: "2. Melyik egy Tesla?",
+                options: [
+                    { img: "kepek//tesla2.avif", correct: true },
+                    { img: "kepek//ferrari2.jpg", correct: false },
+                    { img: "kepek//byd2.png", correct: false },
+                    { img: "kepek//kei2.jpg", correct: false }
+                ]
+            },
+            {
+                q: "3. Melyik autó egy Porche?",
+                options: [
+                    { img: "kepek//kei2.jpg", correct: false },
+                    { img: "kepek//byd3.jpg", correct: false },
+                    { img: "kepek//porchetaycan.webp", correct: true },
+                    { img: "kepek//lambo.jpg", correct: false }
+                ]
+            },
+            {
+                q: "4. Melyik gépjármű van 500 lóerő felett?",
+                options: [
+                    { img: "kepek//polo.webp", correct: false },
+                    { img: "kepek//koenigsegg.jpg", correct: true },
+                    { img: "kepek//toyota3.png", correct: false },
+                    { img: "kepek//fiat.avif", correct: false }
+                ]
+            },
+            {
+                q: "5. Melyik kocsi egy Ferrari?",
+                options: [
+                    { img: "kepek//fiat.avif", correct: false },
+                    { img: "kepek//corvette.jpg", correct: false },
+                    { img: "kepek//repcsi.jpg", correct: false },
+                    { img: "kepek//feri3.jpg", correct: true }
+                ]
+            },
+            {
+                q: "6. Melyik jármű egy Toyota?",
+                options: [
+                    { img: "kepek//toyota3.png", correct: true },
+                    { img: "kepek//feri3.jpg", correct: false },
+                    { img: "kepek//supra.avif", correct: true },
+                    { img: "kepek//tesla2.avif", correct: false }
+                ]
+            },
+            {
+                q: "7. Melyik képen látható a Forma-1 jele?",
+                options: [
+                    { img: "kepek//f1.jpg", correct: true },
+                    { img: "kepek//coca.png", correct: false },
+                    { img: "kepek//red.jpg", correct: false },
+                    { img: "kepek//nascar.avif", correct: false }
+                ]
+            },
+            {
+                q: "8. Melyik egy luxusautó?",
+                options: [
+                    { img: "kepek//lambo.jpg", correct: true },
+                    { img: "kepek//bugi.jpg", correct: true },
+                    { img: "kepek//polski1.jpg", correct: false },
+                    { img: "kepek//rol.jpg", correct: true }
+                ]
+            },
+            {
+                q: "9. Melyik sportautó?",
+                options: [
+                    { img: "kepek//lambo.jpg", correct: true },
+                    { img: "kepek//honda.jpg", correct: false },
+                    { img: "kepek//pori.webp", correct: true },
+                    { img: "kepek//fiat.avif", correct: false }
+                ]
+            },
+            {
+                q: "10. Melyik a Bogár?",
+                options: [
+                    { img: "kepek//bogar3.jpg", correct: true },
+                    { img: "kepek//rally.jpg", correct: false },
+                    { img: "kepek//bogar2.jpg", correct: true },
+                    { img: "kepek//bogar.jpg", correct: true }
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const nextBtn = document.getElementById('next-button');
+            nextBtn.disabled = true;
+            nextBtn.classList.remove('enabled');
+
+            const qData = questions[currentStep];
+            document.getElementById('question-text').innerText = qData.q;
+
+            const percentage = (currentStep + 1) * 10;
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = percentage + "%";
+            progressBar.innerText = percentage + " %";
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            qData.options.forEach((opt, index) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.innerHTML = `
+                    <img src="${opt.img}" alt="kép">
+                    <div class="feedback-icon">${opt.correct ? '<span style="color:#4eff54">✔</span>' : '<span style="color:#ff3d3d">✘</span>'}</div>
+                `;
+                div.onclick = () => selectOption(div, opt.correct);
+                container.appendChild(div);
+            });
+        }
+
+        function selectOption(element, isCorrect) {
+            if (answered) return;
+            answered = true;
+
+            const nextBtn = document.getElementById('next-button');
+            nextBtn.disabled = false;
+            nextBtn.classList.add('enabled');
+
+            element.style.borderColor = isCorrect ? 'var(--correct-green)' : 'var(--wrong-red)';
+            element.querySelector('.feedback-icon').style.display = 'block';
+
+            if (!isCorrect) {
+                const allOpts = document.querySelectorAll('.option');
+                questions[currentStep].options.forEach((o, i) => {
+                    if (o.correct) {
+                        allOpts[i].style.borderColor = 'var(--correct-green)';
+                        allOpts[i].querySelector('.feedback-icon').style.display = 'block';
+                    }
+                });
+            }
+        }
+
+        function nextQuestion() {
+            if (currentStep < questions.length - 1) {
+                currentStep++;
+                loadQuestion();
+            } else {
+                alert("Gratulálok! Elérted a 100%-ot!");
+            }
+        }
+
+        function prevQuestion() {
+            if (currentStep > 0) {
+                currentStep--;
+                loadQuestion();
+            }
+        }
+
+        document.getElementById('newsletterButton').addEventListener('click', function () {
+            const button = this;
+            button.disabled = true;
+            const originalText = button.textContent;
+            button.textContent = 'Töltés...';
+
+            setTimeout(function () {
+                const newsletterModal = new bootstrap.Modal(document.getElementById('newsletter'));
+                newsletterModal.show();
+
+                button.disabled = false;
+                button.textContent = originalText;
+            }, 1000);
+        });
+
+        document.querySelectorAll('.navbar .nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.navbar .nav-link')
+                    .forEach(el => el.classList.remove('active'));
+
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelector(".search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const input = this.querySelector("input").value.trim();
+            const query = input.toLowerCase();
+
+            if (!query) return;
+
+            removeHighlights(document.body);
+            highlight(document.body, query);
+
+            const first = document.querySelector("mark");
+            if (first) {
+                first.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+
+            const count = document.querySelectorAll("mark").length;
+            console.log("Találatok száma:", count);
+        });
+
+
+        function highlight(element, query) {
+
+            if (element.closest && element.closest(".navbar, footer")) return;
+
+            if (element.nodeType === 3) {
+                const text = element.nodeValue;
+                const regex = new RegExp(`(${query})`, "gi");
+
+                if (regex.test(text)) {
+                    const span = document.createElement("span");
+                    span.innerHTML = text.replace(regex, "<mark>$1</mark>");
+                    element.replaceWith(...span.childNodes);
+                }
+            }
+            else if (element.nodeType === 1) {
+
+                if (["SCRIPT", "STYLE", "MARK"].includes(element.tagName)) return;
+
+                element.childNodes.forEach(child => highlight(child, query));
+            }
+        }
+
+
+        function removeHighlights(element) {
+            const marks = element.querySelectorAll("mark");
+
+            marks.forEach(mark => {
+                mark.replaceWith(mark.textContent);
+            });
+        }
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>
