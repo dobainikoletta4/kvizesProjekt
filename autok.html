@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindenami Kvíz - Százalékos Haladás</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --header-footer-bg: #222;
+            --accent-blue: #2b7fff;
+            --correct-green: #4caf50;
+            --wrong-red: #f44336;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--bg-color); display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Header */
+        header { background-color: var(--header-footer-bg); color: white; padding: 15px 50px; display: flex; justify-content: flex-start; align-items: center; }
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; opacity: 0.8; }
+        nav a.active { background: white; color: black; font-weight: bold; opacity: 1; }
+
+        .page-section { display: none; flex-grow: 1; flex-direction: column; align-items: center; padding: 40px 20px; }
+        .page-section.active { display: flex; }
+
+        /* FOLYAMATJELZŐ SZÁMOKKAL */
+        .progress-container { 
+            width: 80%; 
+            max-width: 800px; 
+            background-color: #ddd; 
+            height: 25px; /* Kicsit vastagabb, hogy elférjen a szám */
+            border-radius: 15px; 
+            margin-bottom: 40px; 
+            overflow: hidden;
+            position: relative;
+        }
+
+        #progress-bar { 
+            height: 100%; 
+            width: 10%; 
+            background-color: var(--accent-blue); 
+            transition: width 0.5s ease; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Kvíz kártya */
+        .quiz-card { background: white; border: 8px solid #999; border-radius: 30px; padding: 40px; width: 90%; max-width: 600px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
+        .option { position: relative; cursor: pointer; border-radius: 8px; overflow: hidden; border: 4px solid transparent; transition: 0.2s; }
+        .option img { width: 100%; height: 150px; object-fit: cover; display: block; }
+
+        .feedback-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; display: none; z-index: 5; text-shadow: 0 0 10px rgba(0,0,0,0.5); pointer-events: none; }
+
+        /* Gombok */
+        .buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        button { padding: 12px 30px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; }
+        .back-btn { background: var(--accent-blue); }
+        .next-btn { background: #444; opacity: 0.4; cursor: not-allowed; }
+        .next-btn.enabled { opacity: 1; cursor: pointer; background: #333; }
+
+        footer { background-color: var(--header-footer-bg); color: white; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="main-nav">
+            <a onclick="showPage('home')">Főoldal</a>
+            <a onclick="showPage('movies')">Filmek</a>
+            <a onclick="showPage('landmarks')">Nevezetességek</a>
+            <a onclick="showPage('cars')" class="active">Autók</a>
+        </nav>
+    </header>
+
+    <main id="home" class="page-section"><h1>Főoldal</h1></main>
+    <main id="movies" class="page-section"><h1>Filmek</h1></main>
+    <main id="landmarks" class="page-section"><h1>Nevezetességek</h1></main>
+
+    <main id="cars" class="page-section active">
+        <!-- Itt a módosított csík -->
+        <div class="progress-container">
+            <div id="progress-bar">10 %</div>
+        </div>
+
+        <div class="quiz-card">
+            <h2 id="question-text">Betöltés...</h2>
+            <div class="image-grid" id="options-container"></div>
+            <div class="buttons">
+                <button class="back-btn" onclick="prevQuestion()">Vissza</button>
+                <button id="next-button" class="next-btn" onclick="nextQuestion()" disabled>Tovább</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div><strong>Elérhetőség</strong><br>mindenamikviz@gmail.com</div>
+        <div><strong>Hírlevél</strong><br><input type="text" placeholder="Iratkozz fel!"><button style="background:white; color:black; border:none; padding: 5px 10px; cursor:pointer;">Feliratkozás</button></div>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                q: "Melyik képen látható egy Lada?",
+                options: [
+                    { img: "https://unsplash.com", correct: false },
+                    { img: "https://unsplash.com", correct: false },
+                    { img: "https://wikimedia.org", correct: true },
+                    { img: "https://unsplash.com", correct: false }
+                ]
+            }
+        ];
+
+        // 10 kérdés generálása
+        for(let i=1; i<10; i++) {
+            questions.push({
+                q: `${(i+1)}. autós kérdés: Melyik a helyes választás?`,
+                options: [
+                    { img: `https://picsum.photos{i}1`, correct: i%2==0 },
+                    { img: `https://picsum.photos{i}2`, correct: i%2!=0 },
+                    { img: `https://picsum.photos{i}3`, correct: false },
+                    { img: `https://picsum.photos{i}4`, correct: false }
+                ]
+            });
+        }
+
+        let currentStep = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const nextBtn = document.getElementById('next-button');
+            nextBtn.disabled = true;
+            nextBtn.classList.remove('enabled');
+
+            const qData = questions[currentStep];
+            document.getElementById('question-text').innerText = qData.q;
+            
+            // PROGRESS BAR FRISSÍTÉSE SZÁMMAL
+            const percentage = (currentStep + 1) * 10;
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = percentage + "%";
+            progressBar.innerText = percentage + " %";
+            
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            qData.options.forEach((opt, index) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.innerHTML = `
+                    <img src="${opt.img}">
+                    <div class="feedback-icon">${opt.correct ? '<span style="color:#4eff54">✔</span>' : '<span style="color:#ff3d3d">✘</span>'}</div>
+                `;
+                div.onclick = () => selectOption(div, opt.correct);
+                container.appendChild(div);
+            });
+        }
+
+        function selectOption(element, isCorrect) {
+            if(answered) return;
+            answered = true;
+
+            const nextBtn = document.getElementById('next-button');
+            nextBtn.disabled = false;
+            nextBtn.classList.add('enabled');
+
+            element.style.borderColor = isCorrect ? 'var(--correct-green)' : 'var(--wrong-red)';
+            element.querySelector('.feedback-icon').style.display = 'block';
+
+            if(!isCorrect) {
+                const allOpts = document.querySelectorAll('.option');
+                questions[currentStep].options.forEach((o, i) => {
+                    if(o.correct) {
+                        allOpts[i].style.borderColor = 'var(--correct-green)';
+                        allOpts[i].querySelector('.feedback-icon').style.display = 'block';
+                    }
+                });
+            }
+        }
+
+        function nextQuestion() {
+            if(currentStep < questions.length - 1) {
+                currentStep++;
+                loadQuestion();
+            } else {
+                alert("Gratulálok! Elérted a 100%-ot!");
+            }
+        }
+
+        function prevQuestion() {
+            if(currentStep > 0) {
+                currentStep--;
+                loadQuestion();
+            }
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            document.querySelectorAll('#main-nav a').forEach(a => {
+                a.classList.remove('active');
+                if(a.getAttribute('onclick').includes(pageId)) a.classList.add('active');
+            });
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
