@@ -498,8 +498,9 @@ if (label) {
             });
         };
 
-        const retakeQuiz = () => {
-            questionNumber = 0;
+       const retakeQuiz = () => {
+    document.querySelector(".quiz-card").style.display = "block";
+    questionNumber = 0;
             score = 0;
             document.querySelector(".quiz-card")
     .insertBefore(progressContainer, quizContainer);
@@ -513,15 +514,15 @@ if (label) {
             
         };
 
-        const displayQuizResult = () => {
-
-            questionNumber = MAX_QUESTIONS;
-            updateProgress();
-            progressContainer.remove();
-            const showResult = () => {
-                quizResult.style.display = "flex";
-                quizContainer.style.display = "none";
-                progressContainer.style.display = "none";
+       const displayQuizResult = () => {
+    questionNumber = MAX_QUESTIONS;
+    progressContainer.style.display = "none";
+    progressContainer.remove();
+           const showResult = () => {
+    document.querySelector(".quiz-card").style.display = "none"; 
+    quizResult.style.display = "flex";
+    quizContainer.style.display = "none";
+    progressContainer.style.display = "none";
                 quizResult.innerHTML = "";
 
                 const resultHeading = document.createElement("h2");
