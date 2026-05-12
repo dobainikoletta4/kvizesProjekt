@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nevezetességkvíz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="villanykorte.jpg" alt="logo" title="logo" width="50" height="42"
+                class="d-inline-block align-text-top me-2" style="border-radius: 10px;">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav fs-4">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Főoldal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="filmek.html">Filmek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="nevezetessegkviz.html">Nevezetességek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="autok.html">Autók</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex ms-auto search-form" role="search">
+                    <input class="form-control me-2 bg-white text-dark border-0" type="search" placeholder="Szöveg">
+
+                    <button class="btn bg-white text-dark border-0" type="submit">
+                        Keresés
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    </div>
+    <div class="start-btn-container">
+        <h2>Nevezetességek kvíz</h2>
+        <p>Teszteld tudásod!</p>
+        <button class="start-btn">kvíz kitöltése</button>
+    </div>
+<div class="quiz-card">
+    <div class="quiz-container">
+        <h1>Nevezetességek kvíz</h1>
+        <div class="timer">hátramaradt idő: 10 másodperc</div>
+        <h2 class="question"></h2>
+        <div class="options"></div>
+        <button class="next-btn">következő</button>
+    </div>
+</div>
+    <div class="quiz-result"></div>
+
+    <div class="modal fade" id="newsletter" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iratkozz fel a hírlevélre!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Név</label>
+                            <input type="text" id="nameInput" class="form-control" placeholder="Add meg a neved!">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email cím</label>
+                            <input type="email" id="emailInput" class="form-control"
+                                placeholder="Add meg az email címed!">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="termsCheckbox" checked>
+                            <label for="termsCheckbox" class="form-check-label">
+                                Elfogadom a felhasználási feltételeket
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn text-bg-dark">Feliratkozás</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row text-center align-items-start">
+
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Elérhetőségek</h4>
+
+                    <p>
+                        <i class="fa-regular fa-envelope"></i>
+                        <a href="mailto:mindenamikviz@gmail.com" class="email">mindenamikviz@gmail.com</a>
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone"></i>
+                        +36 70 409 8551
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        Magyarország
+                    </p>
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Támogatók</h4>
+
+                    <p>TechNova Kft.</p>
+                    <p>DigitalWave Studio</p>
+                    <p>CodeFactory Solutions</p>
+                    <p>BlueFilm Media</p>
+                </div>
+
+                <div
+                    class="col-lg-4 col-md-4 col-12 d-flex flex-column justify-content-center align-items-center text-center h-100 py-2">
+                    <h4 class="cim">Hírlevél</h4>
+
+                    <button type="button" class="btn1 mt-2" id="newsletterButton">
+                        Feliratkozás
+                    </button>
+
+                    <p class="mondat mt-3">
+                        Értesülj új kvízekről és friss tartalmakról
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('newsletterButton').addEventListener('click', function () {
+            const button = this;
+            button.disabled = true;
+            const originalText = button.textContent;
+            button.textContent = 'Töltés...';
+
+            setTimeout(function () {
+                const newsletterModal = new bootstrap.Modal(document.getElementById('newsletter'));
+                newsletterModal.show();
+
+                button.disabled = false;
+                button.textContent = originalText;
+            }, 5000);
+        });
+
+        document.querySelectorAll('.navbar .nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.navbar .nav-link')
+                    .forEach(el => el.classList.remove('active'));
+
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelector(".search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const input = this.querySelector("input").value.trim();
+            const query = input.toLowerCase();
+
+            if (!query) return;
+
+            removeHighlights(document.body);
+            highlight(document.body, query);
+        });
+
+        function highlight(element, query) {
+            if (element.nodeType === 3) {
+                const text = element.nodeValue;
+
+                if (text.toLowerCase().includes(query)) {
+                    const span = document.createElement("span");
+                    span.innerHTML = text.replace(new RegExp(query, "gi"), match => `<mark>${match}</mark>`);
+
+                    const wrapper = document.createElement("span");
+                    wrapper.innerHTML = span.innerHTML;
+
+                    element.replaceWith(wrapper);
+                }
+            } else {
+                element.childNodes.forEach(child => {
+                    highlight(child, query);
+                });
+            }
+        }
+
+        function removeHighlights(element) {
+            const marks = element.querySelectorAll("mark");
+
+            marks.forEach(mark => {
+                mark.replaceWith(mark.textContent);
+            });
+        }
+        let quizData = [
+            {
+                question: "Az alábbiak közül melyik a budapesti Szabadságszobor?",
+                options: [
+                    { src: "nkepek/b.jpg", label: "sz" },
+                    { src: "nkepek/a.jpg", label: "a" },
+                    { src: "nkepek/c.jpg", label: "vauvau" },
+                    { src: "nkepek/d.jpg", label: "r" }
+                ],
+                correct: "sz",
+            },
+            {
+                question: "Az alábbiak küzöl melyik a Lánchíd?",
+                options: [
+                    { src: "nkepek/f.jpg", label: "nig" },
+                    { src: "nkepek/e.jpg", label: "y" },
+                    { src: "nkepek/g.webp", label: "g3" },
+                    { src: "nkepek/h.jpg", label: "h4" }
+                ],
+                correct: "y",
+            },
+            {
+                question: "Melyik a Parlament?",
+                options: [
+                    { src: "nkepek/j.jpg", label: "ahh" },
+                    { src: "nkepek/k.jpg", label: "k" },
+                    { src: "nkepek/L.jpg", label: "t" },
+                    { src: "nkepek/m.jpg", label: "f" }
+                ],
+                correct: "ahh",
+            },
+            {
+                question: "Az alábbiak közül melyik a tatabányai Csónakázó-tó?",
+                options: [
+                    { src: "nkepek/a1.avif", label: "w" },
+                    { src: "nkepek/a2.jpg", label: "dniggerniggerniggerniggerniggernigger" },
+                    { src: "nkepek/a3.jpg", label: "g3" },
+                    { src: "nkepek/a4.jpg", label: "f4" }
+                ],
+                correct: "w",
+            },
+            {
+                question: "Melyik a Ranzinger Vince-kilátó?",
+                options: [
+                    { src: "nkepek/b1.jpg", label: "g" },
+                    { src: "nkepek/b2.jpg", label: "gasda" },
+                    { src: "nkepek/b3.jpg", label: "gfgd" },
+                    { src: "nkepek/b4.jpg", label: "gb4" }
+                ],
+                correct: "g",
+            },
+
+            {
+                question: "Melyik képen látható Tel Aviv városa?",
+                options: [
+                    { src: "nkepek/c1.jpg", label: "q" },
+                    { src: "nkepek/c2.jpg", label: "qagfg" },
+                    { src: "nkepek/c3.jpg", label: "qttt" },
+                    { src: "nkepek/c4.jpg", label: "qer" }
+                ],
+                correct: "q",
+            },
+            {
+                question: "Tatai vár?",
+                options: [
+                    { src: "nkepek/d1.jpg", label: "d1" },
+                    { src: "nkepek/d2.jpg", label: "AAAAHHHHHHH" },
+                    { src: "nkepek/d3.jpg", label: "NIGGER" },
+                    { src: "nkepek/d4.jpg", label: "d4HMMM " }
+                ],
+                correct: "d1",
+            },
+            {
+                question: "Melyik a Fertő-tó?",
+                options:[
+                    {src:"nkepek/g1.jpg", label:"g1"},
+                    {src:"nkepek/g2.jpg", label:"g2"},
+                    {src:"nkepek/g3.jpg", label:"g3"},
+                    {src:"nkepek/g4.jpg", label:"g4"},
+                ],
+                correct:"g1",
+            },
+            {
+                question: "Melyik az Aggteleki cseppkőbarlang?",
+                options:[
+                    {src:"nkepek/h1.jpg", label:"h1"},
+                    {src:"nkepek/h2.jpg", label:"h2"},
+                    {src:"nkepek/h3.jpg", label:"h3"},
+                    {src:"nkepek/h4.jpg", label:"h4"},
+                ],
+                correct:"h1",
+            },
+            {
+                question: "Melyik képen látható a TSZC Bánki Donát-Péch Antal technikum?",
+                options:[
+                    {src:"nkepek/k.jpg", label:"j1"},
+                    {src:"nkepek/j2.jpg", label:"j2"},
+                    {src:"nkepek/j3.jpg", label:"j3"},
+                    {src:"nkepek/j4.jpg", label:"j4"},
+                ],
+                correct:"j1",
+            }
+        ];
+
+        const quizContainer = document.querySelector(".quiz-container");
+        const question = document.querySelector(".quiz-container .question");
+        const options = document.querySelector(".quiz-container .options");
+        const nextBtn = document.querySelector(".quiz-container .next-btn");
+        const quizResult = document.querySelector(".quiz-result");
+        const startBtnContainer = document.querySelector(".start-btn-container");
+        const startBtn = document.querySelector(".start-btn-container .start-btn");
+        let questionNumber = 0;
+        let score = 0;
+        const MAX_QUESTIONS = 10;
+        let timerInterval;
+        let answered = false;
+        const styleTag = document.createElement("style");
+        styleTag.textContent = `
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  @keyframes flashIn {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+`;
+        document.head.appendChild(styleTag);
+
+
+        const progressContainer = document.createElement("div");
+        progressContainer.style.cssText = `
+  max-width: 900px;
+  margin: 16px auto 0;
+  padding: 0 16px;
+  display: none;
+  width:900px;
+`;
+progressContainer.innerHTML = `
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+
+
+  </div>
+  <div style="
+    background: gray;
+    border-radius: 999px;
+    height: 22px;
+    overflow: hidden;
+    
+    position: relative;
+  ">
+    <div id="progress-bar" style="
+      height: 100%;
+      width: 0%;
+      background: blue;
+      background-size: 200% 100%;
+      border-radius: 999px;
+      animation: shimmer 2s linear infinite;
+      position: relative;
+    ">    <span id="progress-percent"  style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: bold; color: white; text-align: center;">  0%</span>
+      <div style="
+        position: absolute;
+        top: 3px; left: 10px; right: 10px; bottom: 50%;
+        background: rgba(255,255,255,0.25);
+        border-radius: 999px;
+      "></div>
+    </div>
+  </div>
+`;
+            
+        quizContainer.parentNode.insertBefore(progressContainer, quizContainer);
+
+        const updateProgress = () => {
+            const percent = Math.round((questionNumber / MAX_QUESTIONS) * 100);
+            const bar = document.getElementById("progress-bar");
+            const label = document.getElementById("progress-percent");
+            if (bar) bar.style.width = percent + "%";
+            if (label) label.textContent = percent + "%";
+        };
+
+
+        const showFailOverlay = () => {
+            const overlay = document.createElement("div");
+            overlay.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 9999;
+    background: black;
+    animation: flashIn 10s ease forwards;
+  `;
+            const img = document.createElement("img");
+            img.src = "nkepek/f2.jpg";
+            img.style.cssText = `
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  `;
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+            setTimeout(() => overlay.remove(), 10000);
+        };
+
+
+
+        const shuffleArray = (array) => array.slice().sort(() => Math.random() - 0.5);
+
+        quizData = shuffleArray(quizData);
+
+        const resetLocalStorage = () => {
+            for (let i = 0; i < MAX_QUESTIONS; i++) {
+                localStorage.removeItem(`userAnswer_${i}`);
+            }
+        };
+
+        resetLocalStorage();
+
+        const checkAnswer = (e) => {
+            if (answered) return;
+            answered = true;
+            const btn = e.target.closest("button");
+            let userAnswer = btn.dataset.label;
+
+            if (userAnswer === quizData[questionNumber].correct) {
+                score++;
+                btn.classList.add("correct");
+            } else {
+                btn.classList.add("incorrect");
+            }
+
+            localStorage.setItem(`userAnswer_${questionNumber}`, userAnswer);
+
+            document.querySelectorAll(".quiz-container .option").forEach((o) => {
+                o.classList.add("disabled");
+            });
+            setTimeout(() => {
+                displayNextQuestion();
+            }, 1000);
+        };
+
+        const createQuestion = () => {
+            answered = false;
+            clearInterval(timerInterval);
+            updateProgress();
+
+            let secondsLeft = 9;
+            const timerDisplay = document.querySelector(".quiz-container .timer");
+            timerDisplay.classList.remove("danger");
+            timerDisplay.textContent = `hátramaradt idő: 10 másodperc`;
+
+            timerInterval = setInterval(() => {
+                timerDisplay.textContent = `hátramaradt idő: ${secondsLeft.toString().padStart(2, "0")} másodperc`;
+                secondsLeft--;
+                if (secondsLeft < 3) timerDisplay.classList.add("danger");
+                if (secondsLeft < 0) {
+                    clearInterval(timerInterval);
+                    displayNextQuestion();
+                }
+            }, 1000);
+
+            options.innerHTML = "";
+            question.innerHTML = `<span class='question-number'>${questionNumber + 1}/${MAX_QUESTIONS}</span>${quizData[questionNumber].question}`;
+
+            shuffleArray(quizData[questionNumber].options).forEach((o) => {
+                const option = document.createElement("button");
+                option.classList.add("option");
+                const img = document.createElement("img");
+                img.src = o.src;
+                img.alt = o.label;
+                img.width = 200;
+                option.appendChild(img);
+                option.dataset.label = o.label;
+                option.addEventListener("click", checkAnswer);
+                options.appendChild(option);
+            });
+        };
+
+        const retakeQuiz = () => {
+            questionNumber = 0;
+            score = 0;
+            quizData = shuffleArray(quizData);
+            resetLocalStorage();
+            updateProgress();
+            createQuestion();
+            quizResult.style.display = "none";
+            quizContainer.style.display = "block";
+            progressContainer.style.display = "block";
+        };
+
+        const displayQuizResult = () => {
+
+            questionNumber = MAX_QUESTIONS;
+            updateProgress();
+
+            const showResult = () => {
+                quizResult.style.display = "flex";
+                quizContainer.style.display = "none";
+                progressContainer.style.display = "none";
+                quizResult.innerHTML = "";
+
+                const resultHeading = document.createElement("h2");
+                resultHeading.innerHTML = `${score} / ${MAX_QUESTIONS} pontot szereztél.`;
+                quizResult.appendChild(resultHeading);
+
+                for (let i = 0; i < MAX_QUESTIONS; i++) {
+                    const resultItem = document.createElement("div");
+                    resultItem.classList.add("question-container");
+                    const userAnswer = localStorage.getItem(`userAnswer_${i}`);
+                    const correctAnswer = quizData[i].correct;
+                    const answeredCorrectly = userAnswer === correctAnswer;
+
+                    if (!answeredCorrectly) resultItem.classList.add("incorrect");
+                    else resultItem.classList.add("correct");
+
+                    resultItem.innerHTML = `
+        <div class="question">${i + 1}. kérdés: ${quizData[i].question}</div>
+        <div class="result-status">${answeredCorrectly ? "✅ " : "❌"}</div>
+      `;
+                    quizResult.appendChild(resultItem);
+                }
+
+                const retakeBtn = document.createElement("button");
+                retakeBtn.classList.add("retake-btn");
+                retakeBtn.innerHTML = "Újra";
+                retakeBtn.addEventListener("click", retakeQuiz);
+                quizResult.appendChild(retakeBtn);
+            };
+
+            if (score === 0) {
+                showFailOverlay();
+                setTimeout(showResult, 10500);
+            } else {
+                showResult();
+            }
+        };
+
+        const displayNextQuestion = () => {
+            if (questionNumber >= MAX_QUESTIONS - 1) {
+                displayQuizResult();
+                return;
+            }
+            questionNumber++;
+            createQuestion();
+        };
+
+        nextBtn.addEventListener("click", displayNextQuestion);
+        nextBtn.style.display = "none";
+        startBtn.addEventListener("click", () => {
+
+            startBtnContainer.style.display = "none";
+            quizContainer.style.display = "block";
+            progressContainer.style.display = "block";
+            createQuestion();
+        });
+    </script>
+</body>
+
+</html>
