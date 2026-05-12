@@ -13,7 +13,30 @@
   font-weight: bold;
   text-align: right;
 }
+.progress-container {
+  width: 80%;
+  max-width: 800px;
+  background-color: #ddd;
+  height: 25px;
+  border-radius: 15px;
+  margin: 20px auto 40px auto;
+  overflow: hidden;
+  position: relative;
+}
 
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #0d6efd;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 15px;
+}
 html,
 body {
     height: 100%;
