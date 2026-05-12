@@ -51,6 +51,9 @@ footer {
 }
 
 mark {
+    background-color: rgb(255, 217, 0);
+    color: black;
+    padding: 0;
     background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
     color: black;
     border-radius: 4px;
@@ -60,6 +63,8 @@ mark {
     background-color: #212529;
     color: #ffffff;
     padding: 20px 0;
+    width: 100%;
+    margin-top: 0;
     margin-top: 20px;
 }
 
@@ -95,6 +100,17 @@ mark {
     transform: scale(1.05);
 }
 
+.container.py-2 {
+    flex: 1;
+}
+
+:root {
+    --primary: #3498db;
+    --dark: #2c3e50;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+}
+
 .btn2:hover{
     transform: scale(1.05);
     transition: 0.2s;
@@ -107,6 +123,158 @@ body {
 }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 750px;
+    text-align: center;
+    flex: 1;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    height: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    width: 0%;
+    border-radius: 20px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#progress-text {
+    font-size: 0.8rem;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1a252f;
+}
+
+.option-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+}
+
+.option-btn:hover {
+    background: #e9ecef;
+}
+
+#feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 24px;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-height: 400px;
+    background: #eee;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#gomb,
+#submit-btn,
+#next-btn {
+    border-radius: 10px;
+}
+
+.option-btn:disabled {
+    opacity: 0.6;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.option-btn:disabled:hover {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+}
+
+.correct-highlight {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+    font-weight: bold;
+}
+
+.wrong-highlight {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+}
+
+.option-btn:disabled {
+    opacity: 1;
+}
+
+.email {
+    color: white;
+}
+
+.email:hover {
+    color: #6B9CDD;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

@@ -81,7 +81,25 @@
 
     </header>
 
-    <main id="cars" class="page-section active">
+    <div id="welcome-screen" class="welcome-screen">
+
+        <div class="welcome-box">
+
+            <h1>Üdvözlünk a kvízben! 🚗</h1>
+
+            <p>
+                Teszteld az autós tudásodat 10 izgalmas kérdéssel!
+            </p>
+
+            <button class="start-btn" onclick="startQuiz()">
+                Játék indítása
+            </button>
+
+        </div>
+
+    </div>
+
+    <main id="cars" class="page-section active" style="display: none;">
 
         <div class="progress-container">
 
@@ -356,6 +374,18 @@
         let currentStep = 0;
         let answered = false;
         let score = 0;
+
+        function startQuiz() {
+
+            document.getElementById("welcome-screen")
+                .style.display = "none";
+
+            document.getElementById("cars")
+                .style.display = "block";
+
+            loadQuestion();
+
+        }
 
         function loadQuestion() {
 
