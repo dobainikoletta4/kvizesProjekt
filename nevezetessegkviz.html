@@ -424,7 +424,7 @@ progressContainer.innerHTML = `
 
 
 
-        const shuffleArray = (array) => array.slice().sort(() => Math.random() - 1);
+        const shuffleArray = (array) => array.slice().sort(() => Math.random() - 0.5);
 
         quizData = shuffleArray(quizData);
 
