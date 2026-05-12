@@ -501,6 +501,8 @@ if (label) {
         const retakeQuiz = () => {
             questionNumber = 0;
             score = 0;
+            document.querySelector(".quiz-card")
+    .insertBefore(progressContainer, quizContainer);
             quizData = shuffleArray(quizData);
             resetLocalStorage();
             updateProgress();
@@ -508,13 +510,14 @@ if (label) {
             quizResult.style.display = "none";
             quizContainer.style.display = "block";
             progressContainer.style.display = "block";
+            
         };
 
         const displayQuizResult = () => {
 
             questionNumber = MAX_QUESTIONS;
             updateProgress();
-
+            progressContainer.remove();
             const showResult = () => {
                 quizResult.style.display = "flex";
                 quizContainer.style.display = "none";
