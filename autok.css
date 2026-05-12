@@ -353,3 +353,88 @@ footer {
     align-items: center;
     margin-top: auto;
 }
+
+.welcome-screen {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #111, #222);
+
+    padding: 20px;
+}
+
+.welcome-box {
+
+    background: white;
+    padding: 50px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    max-width: 500px;
+    width: 100%;
+
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.welcome-box h1 {
+
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.welcome-box p {
+
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.start-btn {
+
+    background: #111;
+    color: white;
+
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 12px;
+
+    font-size: 1.2rem;
+
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+
+    background: #333;
+
+    transform: scale(1.05);
+}
+
+/* ===== CSAK KÖZÉPRE IGAZÍTÁS ===== */
+
+#cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-container {
+    width: 100%;
+}
+
+.quiz-card {
+    margin: 0 auto;
+}
+
+.progress-container {
+    width: 90%;
+    margin: 20px auto;
+}
