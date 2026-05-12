@@ -60,7 +60,8 @@ mark {
     background-color: #212529;
     color: #ffffff;
     padding: 20px 0;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 0;
 }
 
 .site-footer h4 {
@@ -87,18 +88,6 @@ mark {
     transform: scale(1.05);
 }
 
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .container.py-2 {
     flex: 1;
 }
@@ -110,14 +99,19 @@ body {
     --white: #ffffff;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .quiz-container {
@@ -126,24 +120,45 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 500px;
+    max-width: 750px;
     text-align: center;
+    flex: 1;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
-/* Progress Bar */
 .progress-container {
     width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    height: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .progress-bar {
-    height: 10px;
-    background-color: var(--primary);
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
     width: 0%;
-    border-radius: 10px;
-    transition: width 0.3s;
+    border-radius: 20px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#progress-text {
+    font-size: 0.8rem;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
 }
 
 .hidden {
@@ -187,7 +202,7 @@ button:hover {
 
 .image-placeholder {
     width: 100%;
-    height: 200px;
+    max-height: 400px;
     background: #eee;
     margin-bottom: 15px;
     border-radius: 8px;
@@ -201,4 +216,46 @@ button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#gomb,
+#submit-btn,
+#next-btn {
+    border-radius: 10px;
+}
+
+.option-btn:disabled {
+    opacity: 0.6;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.option-btn:disabled:hover {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+}
+
+.correct-highlight {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+    font-weight: bold;
+}
+
+.wrong-highlight {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+}
+
+.option-btn:disabled {
+    opacity: 1;
+}
+
+.email {
+    color: white;
+}
+
+.email:hover {
+    color: #6B9CDD;
 }

@@ -53,23 +53,22 @@
 
 
     <div class="quiz-container">
-        <!-- Kezdőoldal -->
         <div id="start-screen">
             <h1>Üdvözöllek a Filmes Kvízben!</h1>
-            <p>Teszteld a tudásodat 10 izgalmas kérdésen keresztül a mozi világáról.</p>
-            <button onclick="startQuiz()">Kezdés</button>
+            <p>Teszteld a tudásodat 10 izgalmas kérdésen keresztül a filmek világáról.</p>
+            <button id="gomb" onclick="startQuiz()">Kezdés</button>
         </div>
 
-        <!-- Kvíz felület -->
         <div id="quiz-screen" class="hidden">
             <div class="progress-container">
-                <div id="progress-bar" class="progress-bar"></div>
+                <div id="progress-bar" class="progress-bar">
+                    <span id="progress-text">0%</span>
+                </div>
             </div>
-            <p id="progress-text">0%</p>
 
             <div id="question-area">
                 <div class="image-placeholder" id="image-container">
-                    <!-- Itt jelenik meg a kép -->
+
                 </div>
                 <h3 id="question-text">Kérdés helye</h3>
                 <div id="options-container"></div>
@@ -80,11 +79,10 @@
             <button id="next-btn" class="hidden" onclick="nextQuestion()">Tovább</button>
         </div>
 
-        <!-- Eredmény oldal -->
         <div id="result-screen" class="hidden">
             <h2>Kész!</h2>
             <p id="final-score"></p>
-            <button onclick="location.reload()">Vissza a főoldalra</button>
+            <button id="gomb" onclick="location.reload()">Vissza a kezdőpontra</button>
         </div>
     </div>
 
@@ -126,17 +124,17 @@
         <div class="container">
             <div class="row text-center align-items-start">
 
-                <div class="col-lg-4 col-md-4 col-12 footer-left">
-                    <h4>Elérhetőségek</h4>
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Elérhetőségek</h4>
 
                     <p>
                         <i class="fa-regular fa-envelope"></i>
-                        mindenamikviz@gmail.com
+                        <a href="mailto:mindenamikviz@gmail.com" class="email">mindenamikviz@gmail.com</a>
                     </p>
 
                     <p>
                         <i class="fa-solid fa-phone"></i>
-                        +36 409 855
+                        +36 70 409 8551
                     </p>
                     <p>
                         <i class="fa-solid fa-location-crosshairs"></i>
@@ -145,22 +143,26 @@
                 </div>
 
 
-                <div class="col-lg-4 col-md-4 col-12 footer-center">
-                    <h4>Támogatók</h4>
+                <div class="col-lg-4 col-md-4 col-12 py-2">
+                    <h4 class="cim">Támogatók</h4>
 
                     <p>TechNova Kft.</p>
                     <p>DigitalWave Studio</p>
                     <p>CodeFactory Solutions</p>
-                    <p>BluePixel Media</p>
+                    <p>BlueFilm Media</p>
                 </div>
 
                 <div
-                    class="col-lg-4 col-md-4 col-12 footer-right d-flex flex-column align-items-center justify-content-center">
-                    <h4>Hírlevél</h4>
+                    class="col-lg-4 col-md-4 col-12 d-flex flex-column justify-content-center align-items-center text-center h-100 py-2">
+                    <h4 class="cim">Hírlevél</h4>
 
                     <button type="button" class="btn1 mt-2" id="newsletterButton">
                         Feliratkozás
                     </button>
+
+                    <p class="mondat mt-3">
+                        Értesülj új kvízekről és friss tartalmakról
+                    </p>
                 </div>
 
             </div>
@@ -233,16 +235,66 @@
         }
 
         const quizData = [
-            { q: "Ki látható a képen?", a: ["Thranduil", "Batman", "Kevin McCallister", "Legolas"], c: 0, img: "https://vrt.be" },
-            { q: "Melyik filmben szerepel Jack Sparrow?", a: ["Titanic", "A Karib-tenger kalózai", "Avatar", "Star Wars"], c: 1 },
-            { q: "Ki rendezte a Ponyvaregényt?", a: ["Steven Spielberg", "Christopher Nolan", "Quentin Tarantino", "Martin Scorsese"], c: 2 },
-            { q: "Hány Oscar-díjat nyert a Titanic?", a: ["5", "8", "11", "13"], c: 2 },
-            { q: "Ki játszotta Vasembert?", a: ["Chris Evans", "Robert Downey Jr.", "Chris Hemsworth", "Tom Holland"], c: 1 },
-            { q: "Melyik évben jelent meg az első Star Wars film?", a: ["1977", "1980", "1983", "1975"], c: 0 },
-            { q: "Hogy hívják az Oroszlánkirály főhősét?", a: ["Mufasa", "Pumba", "Scar", "Simba"], c: 3 },
-            { q: "Melyik városban játszódik a Batman filmek többsége?", a: ["Metropolis", "Gotham", "Central City", "New York"], c: 1 },
-            { q: "Mi a neve a Gyűrűk Ura sötét urának?", a: ["Saruman", "Sauron", "Gollum", "Gandalf"], c: 1 },
-            { q: "Melyik filmben hangzik el: 'I'll be back'?", a: ["Terminátor", "Rambo", "Die Hard", "Predator"], c: 0 }
+            {
+                q: "Ki látható a képen?",
+                a: ["Thranduil", "Batman", "Kevin McCallister", "Legolas"],
+                c: 0,
+                img: "Thranduil.jpg"
+            },
+            { 
+                q: "Melyik filmben szerepel Jack Sparrow?", 
+                a: ["Titanic", "A Karib-tenger kalózai", "Avatar", "Star Wars"], 
+                c: 1, 
+                img: "Jack Sparrow.jpg" 
+            },
+            { 
+                q: "Ki rendezte a Ponyvaregényt?", 
+                a: ["Steven Spielberg", "Christopher Nolan", "Quentin Tarantino", "Martin Scorsese"], 
+                c: 2, 
+                img: "Ponyvaregény.jpeg" 
+            },
+            { 
+                q: "Hány Oscar-díjat nyert a Titanic?", 
+                a: ["5", "8", "11", "13"], 
+                c: 2, 
+                img: "Titanic.jpg"
+            },
+            { 
+                q: "Ki játszotta Vasembert?", 
+                a: ["Chris Evans", "Robert Downey Jr.", "Chris Hemsworth", "Tom Holland"], 
+                c: 1, 
+                img: "Vasember.jpg"
+            },
+            { 
+                q: "Melyik évben jelent meg az első Star Wars film?", 
+                a: ["1977", "1980", "1983", "1975"], 
+                c: 0, 
+                img: "Star Wars.jpg"
+            },
+            { 
+                q: "Hogy hívják az Oroszlánkirály főhősét?", 
+                a: ["Mufasa", "Pumba", "Scar", "Simba"], 
+                c: 3,
+                img: "Oroszlánkirály.jpg" 
+            },
+            { 
+                q: "Melyik városban játszódik a Batman filmek többsége?", 
+                a: ["Metropolis", "Gotham", "Central City", "New York"], 
+                c: 1,
+                img: "Batman.jpg" 
+            },
+            { 
+                q: "Mi a neve a Gyűrűk Ura sötét urának?", 
+                a: ["Saruman", "Sauron", "Gollum", "Gandalf"], 
+                c: 1,
+                img: "Sauron.jpg" 
+            },
+            { 
+                q: "Melyik filmben hangzik el: 'I'll be back'?", 
+                a: ["Terminátor", "Rambo", "Die Hard", "Predator"], 
+                c: 0, 
+                img: "Terminátor.jpg"
+            }
         ];
 
         let currentIdx = 0;
@@ -262,7 +314,6 @@
             document.getElementById('next-btn').classList.add('hidden');
             document.getElementById('submit-btn').classList.remove('hidden');
 
-            // Kép kezelése (ha van)
             const imgCont = document.getElementById('image-container');
             imgCont.innerHTML = data.img ? `<img src="${data.img}">` : "<span>Nincs kép</span>";
 
@@ -287,22 +338,30 @@
         function checkAnswer() {
             if (selectedOption === null) return alert("Válassz egy választ!");
 
-            const isCorrect = selectedOption === quizData[currentIdx].c;
-            const fb = document.getElementById('feedback');
+            const correctIdx = quizData[currentIdx].c;
+            const optionsCont = document.getElementById('options-container');
+            const buttons = optionsCont.querySelectorAll('.option-btn');
 
-            if (isCorrect) {
-                fb.innerText = "Helyes válasz! ✔️";
-                fb.style.color = "green";
+            buttons.forEach((btn, index) => {
+                btn.disabled = true;
+                btn.style.cursor = "not-allowed";
+
+                if (index === correctIdx) {
+                    btn.classList.add('correct-highlight');
+                } else if (index === selectedOption) {
+                    btn.classList.add('wrong-highlight');
+                }
+            });
+
+            if (selectedOption === correctIdx) {
                 score++;
-            } else {
-                fb.innerText = "Sajnos hibás! ❌";
-                fb.style.color = "red";
             }
 
             document.getElementById('submit-btn').classList.add('hidden');
             document.getElementById('next-btn').classList.remove('hidden');
             selectedOption = null;
         }
+
 
         function nextQuestion() {
             currentIdx++;
@@ -314,9 +373,18 @@
         }
 
         function updateProgress() {
-            const percent = (currentIdx / quizData.length) * 100;
-            document.getElementById('progress-bar').style.width = percent + "%";
-            document.getElementById('progress-text').innerText = Math.round(percent) + "%";
+            const percent = ((currentIdx + 1) / quizData.length) * 100;
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+
+            if (progressBar) {
+                progressBar.style.width = percent + "%";
+            }
+
+            if (progressText) {
+                progressText.innerText = Math.round(percent) + "%";
+            }
         }
 
         function showResult() {
