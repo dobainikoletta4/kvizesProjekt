@@ -1,3 +1,107 @@
+#quiz-finish {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+#quiz-finish.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.finish-box {
+    background: #ffffff;
+
+    width: 90%;
+    max-width: 430px;
+
+    padding: 40px 30px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+
+    animation: popup 0.35s ease;
+}
+
+.finish-box h2 {
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+
+    color: #111;
+}
+
+.result-text {
+    font-size: 1.2rem;
+
+    color: #666;
+
+    margin-bottom: 10px;
+}
+
+.result-score {
+    font-size: 3.5rem;
+
+    font-weight: bold;
+
+    color: #008000;
+
+    margin-bottom: 30px;
+}
+
+.back-result-btn {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 34px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.back-result-btn:hover {
+    background: #333;
+
+    transform: scale(1.05);
+}
+
+@keyframes popup {
+
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
 footer {
     background-color: rgb(33, 37, 41);
     color: white;
