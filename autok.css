@@ -164,7 +164,7 @@ mark {
     background-color: #212529;
     color: #ffffff;
     padding: 20px 0;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .site-footer h4 {
@@ -222,7 +222,7 @@ mark {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    margin: 0;
+    margin-bottom: 0;
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
@@ -363,7 +363,9 @@ footer {
     justify-content: center;
     align-items: center;
 
-    background: linear-gradient(135deg, #111, #222);
+    .welcome-screen {
+        background: white;
+    }
 
     padding: 20px;
 }
