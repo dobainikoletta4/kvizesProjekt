@@ -159,6 +159,39 @@
 
     </div>
 
+    <div class="modal fade" id="newsletter" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iratkozz fel a hírlevélre!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Név</label>
+                            <input type="text" id="nameInput" class="form-control" placeholder="Add meg a neved!">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email cím</label>
+                            <input type="email" id="emailInput" class="form-control"
+                                placeholder="Add meg az email címed!">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="termsCheckbox" checked>
+                            <label for="termsCheckbox" class="form-check-label">
+                                Elfogadom a felhasználási feltételeket
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn text-bg-dark">Feliratkozás</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="site-footer">
 
         <div class="container">
@@ -511,6 +544,82 @@
                 behavior: "smooth"
             });
 
+        }
+
+        document.getElementById('newsletterButton').addEventListener('click', function () {
+            const button = this;
+            button.disabled = true;
+            const originalText = button.textContent;
+            button.textContent = 'Töltés...';
+
+            setTimeout(function () {
+                const newsletterModal = new bootstrap.Modal(document.getElementById('newsletter'));
+                newsletterModal.show();
+
+                button.disabled = false;
+                button.textContent = originalText;
+            }, 1000);
+        });
+
+        document.querySelectorAll('.navbar .nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.navbar .nav-link')
+                    .forEach(el => el.classList.remove('active'));
+
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelector(".search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const input = this.querySelector("input").value.trim();
+            const query = input.toLowerCase();
+
+            if (!query) return;
+
+            removeHighlights(document.body);
+            highlight(document.body, query);
+
+            const first = document.querySelector("mark");
+            if (first) {
+                first.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+
+            const count = document.querySelectorAll("mark").length;
+            console.log("Találatok száma:", count);
+        });
+
+
+        function highlight(element, query) {
+
+            if (element.closest && element.closest(".navbar, footer")) return;
+
+            if (element.nodeType === 3) {
+                const text = element.nodeValue;
+                const regex = new RegExp(`(${query})`, "gi");
+
+                if (regex.test(text)) {
+                    const span = document.createElement("span");
+                    span.innerHTML = text.replace(regex, "<mark>$1</mark>");
+                    element.replaceWith(...span.childNodes);
+                }
+            }
+            else if (element.nodeType === 1) {
+
+                if (["SCRIPT", "STYLE", "MARK"].includes(element.tagName)) return;
+
+                element.childNodes.forEach(child => highlight(child, query));
+            }
+        }
+
+
+        function removeHighlights(element) {
+            const marks = element.querySelectorAll("mark");
+
+            marks.forEach(mark => {
+                mark.replaceWith(mark.textContent);
+            });
         }
 
         loadQuestion();
