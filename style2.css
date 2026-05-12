@@ -53,14 +53,17 @@ body {
   border: none;
   padding: 24px 32px;
   font-size: 18px;
-  background: #1d3557;
+  background: #c0c2c7;
   color: #fff;
+  border-radius: 30px;
 }
 
 .quiz-container button {
   cursor: pointer;
 }
-
+img{
+  border-radius: 10px;
+}
 .disabled {
   pointer-events: none;
 }
@@ -141,7 +144,7 @@ body {
 }
 
 .start-btn-container .start-btn {
-  background: #e63946;
+  background: #000000;
   color: #fff;
   padding: 8px 32px;
   border-radius: 8px;
