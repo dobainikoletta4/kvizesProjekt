@@ -192,16 +192,19 @@ mark {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: normal;
 }
 
 .btn1:hover {
     background-color: #e6e6e6;
     transform: scale(1.05);
+    font-weight: normal;
 }
 
 .btn2:hover {
     transform: scale(1.05);
     transition: 0.2s;
+    font-weight: normal;
 }
 
 .email {
@@ -357,7 +360,7 @@ footer {
 .welcome-screen {
 
     width: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
 
     display: flex;
     justify-content: center;
@@ -373,14 +376,14 @@ footer {
 .welcome-box {
 
     background: white;
-    padding: 50px;
+    padding: 70px;
 
-    border-radius: 20px;
+    border-radius: 25px;
 
     text-align: center;
 
-    max-width: 500px;
-    width: 100%;
+    max-width: 750px;
+    width: 95%;
 
     box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
