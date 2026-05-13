@@ -167,7 +167,7 @@ img{
 
 .start-btn-container .start-btn:hover {
   transform: translateY(-3px);
-  background: #0b5ed7;
+  background: black;
 }
 
 .quiz-container {
